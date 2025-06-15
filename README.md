@@ -1,9 +1,9 @@
-# System Installer "preseed" Script
+# Debian "preseed" System Installer
 
 This is a script for building a new installer for Debian "bullseye" using a technique called a "preseeding". By using a "preseed" script we tell the installer the answer to a lot of routine questions to give ourselves a standard environment for new hosts. The script in this repository does the following:
 
-* Creates a "paul" user with a known password and an SSH authorized_keys file and a known good environment.
-* Builds an LVM configuration with an 8GB swap partition and the rest of the disk for data using XFS as a file system instead of ext4.
+* Creates a "paul" user with an SSH `authorized_keys` file and a known good environment.
+* Prompts you for a disk configuration but chooses `xfs` instead of `ext4` for the primary disk partition.
 * Enables "security" and "updates" repositories but does not enable backports, sources or automatic updates.
 * Fixes the systemd timesync configuration.
 * Fixes the /etc/resolv.conf file.
