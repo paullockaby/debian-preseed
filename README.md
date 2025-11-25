@@ -1,6 +1,6 @@
 # Debian "preseed" System Installer
 
-This is a script for building a new installer for Debian "bullseye" using a technique called a "preseeding". By using a "preseed" script we tell the installer the answer to a lot of routine questions to give ourselves a standard environment for new hosts. The script in this repository does the following:
+This is a script for building a new installer for Debian "trixie" using a technique called a "preseeding". By using a "preseed" script we tell the installer the answer to a lot of routine questions to give ourselves a standard environment for new hosts. The script in this repository does the following:
 
 * Creates a "paul" user with an SSH `authorized_keys` file and a known good environment.
 * Prompts you for a disk configuration but chooses `xfs` instead of `ext4` for the primary disk partition.
@@ -27,7 +27,7 @@ Follow these steps to run this script:
 2. [Download an netinstall image from the Debian website](https://www.debian.org/distrib/netinst).
 3. Clone this repository.
 4. Install these libraries: `apt-get install -y --no-install-recommends xorriso isolinux pwgen`
-5. Run the build script: `./build /path/to/debian-11.x.x-amd64-netinst.iso /path/to/preseed-debian-11.x.x-amd64-netinst.iso`
+5. Run the build script: `./build /path/to/debian-13.x.x-amd64-netinst.iso /path/to/preseed-debian-13.x.x-amd64-netinst.iso`
 6. Use the new ISO file to build your host.
 
 Note that the preseed.cfg file has no password for logging in as the "paul" user. You can set a password or just use SSH keys. You can change the password by following these steps:
@@ -43,11 +43,11 @@ Use this ISO just like you would any other install ISO. A preseeded ISO file can
 
 # Building a USB Boot Disk on macOS
 
-I'm always having to look this up so here are the steps.
+It's pretty simple:
 
-1. Unmount the disk where `diskXX` is your USB disk: `diskutil unmountDisk /dev/diskXX`
-2. Convert the ISO file into a DMG file: `hdiutil convert -format UDRW -o preseed ./preseed.iso`
-3. Write the DMG file to your USB disk: `sudo dd if=./preseed.dmg of=/dev/diskXX bs=1m`
+1. Run `diskutil list` to find the thumb drive. It'll be labeled something like "/dev/disk6 (external, physical)"
+2. Run `diskutil unmount /dev/disk6` or whatever the disk is called, to unmount any volume that it might already have.
+3. Run `sudo dd if=mydebian.iso of=/dev/disk6 bs=1M` to erase the disk and install the ISO.
 
 Your thumb drive is now bootable.
 
