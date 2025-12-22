@@ -19,7 +19,6 @@ fi
 CURDIR="$(dirname $0)"
 
 ISO_FILES="$(mktemp -d)"
-POSTINSTALL_FILES="$(mktemp -d)"
 CONFIGURATION_FILES="$(mktemp -d)"
 
 xorriso -osirrox on -indev "$INPUTFILE" -extract / "$ISO_FILES"
