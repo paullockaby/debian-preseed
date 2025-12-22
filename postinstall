@@ -9,7 +9,7 @@ echo -n > /etc/motd
 DEBIAN_FRONTEND=noninteractive apt-get purge -y laptop-detect tasksel emacsen-common ienglish-common ispell
 
 # install some additional packages
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends linux-headers-amd64 openssh-server sudo time openssl gnutls-bin zip unzip bzip2 vim vim-scripts curl net-tools patch telnet sqlite3 strace lsof less screen rsync dos2unix bash-completion socat psmisc man-db dnsutils unattended-upgrades gpg-agent gnupg jq bash dbus-user-session acl python3-venv python3-pip python3-setuptools python3-wheel python3-psutil python3-pylibacl python3-sh python3-prometheus-client
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends linux-headers-amd64 openssh-server sudo time openssl gnutls-bin zip unzip bzip2 vim vim-scripts curl net-tools patch telnet sqlite3 strace lsof less screen rsync dos2unix bash-completion socat psmisc man-db dnsutils unattended-upgrades gpg-agent gnupg jq bash dbus-user-session acl python3-venv python3-pip python3-setuptools python3-wheel python3-psutil python3-pylibacl python3-sh python3-prometheus-client rsyslog chrony
 
 # members of `sudo` group are not asked for password.
 sed -i 's/^%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
