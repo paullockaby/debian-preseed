@@ -1,5 +1,8 @@
 # Debian "preseed" System Installer
 
+> [!TIP]
+> If you want to bootstrap Ubuntu systems, you can look at [my Ubuntu autoinstall setup](https://github.com/paullockaby/ubuntu-autoinstall).
+
 This is a script for building a new installer for Debian "trixie" using a technique called a "preseeding". By using a "preseed" script we tell the installer the answer to a lot of routine questions to give ourselves a standard environment for new hosts. The script in this repository does the following:
 
 * Creates a "paul" user with an SSH `authorized_keys` file and a known good environment.
