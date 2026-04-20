@@ -1,0 +1,52 @@
+exclude: '^$'
+fail_fast: false
+default_install_hook_types: [pre-commit, pre-push, commit-msg]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        stages: [pre-commit]
+      - id: check-json
+        stages: [pre-commit]
+      - id: check-toml
+        stages: [pre-commit]
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+        stages: [pre-commit]
+      - id: check-xml
+        stages: [pre-commit]
+      - id: check-shebang-scripts-are-executable
+        stages: [pre-commit]
+      - id: check-executables-have-shebangs
+        stages: [pre-commit]
+      - id: check-merge-conflict
+        stages: [pre-commit]
+      - id: check-case-conflict
+        stages: [pre-commit]
+      - id: check-symlinks
+        stages: [pre-commit]
+      - id: destroyed-symlinks
+        stages: [pre-commit]
+      - id: detect-private-key
+        stages: [pre-commit]
+      - id: mixed-line-ending
+        exclude: "(^.idea/|.vscode/|CHANGELOG.md)"
+        stages: [pre-commit]
+      - id: trailing-whitespace
+        exclude: "(^.idea/|.vscode/|CHANGELOG.md)"
+        stages: [pre-commit]
+      - id: end-of-file-fixer
+        exclude: "(^.idea/|.vscode/|CHANGELOG.md)"
+        stages: [pre-commit]
+      - id: no-commit-to-branch
+        args: [--branch, main]
+        stages: [pre-commit]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.10
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [pre-push]
